@@ -4,11 +4,63 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Doc 1</title>
+    <Script>
+        let magx=document.getElementById("two");
+        magx.innerText;
+    </Script>
+    <style>
+    ul{border:2px solid black;
+         font-size: 20px;
+
+    }
+    li{
+        padding:10px;
+    }
+    </style>
 </head>
 <body id="cero">
     <div>
         <h1 id= "one" class="first">Welcome... De Nada</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore, fugit!</p>
+
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing fugit!</p>
+
+        <h2 id="two">3 ways to get a gext using dom <span>it is the difference</span> </h2>
+        <ul>
+            <li>uno </li>
+            let first=document.querySelector("ul") -- it will return the first ul
+            now we can manipulate it 
+            <br>
+            let second=first.querySelector('li')
+            second.style.background-color="green";
+            <br>
+            second.innerHTML="seis"; // to change the content
+            <br>
+
+            <li>dos</li>
+            <li>tres</li>
+
+
+        </ul>
+        <ul>
+            <li> .innerText -- it shows content inside a html element but it hides some part that was concealed using css
+            </li>
+            <li> .textContent -- it shows all content inside a html element including parts that was concealed using css</li>
+            <li> .innerHTML -- it shows all content inside a html element including parts that was concealed using css including tags </li>
+
+        </ul>
+        <h3>some important query selectors</h3>
+        <ul>
+            <li> document.querySelector("tag"/"id"/"className"/...) -- The querySelector() method returns the first element that matches a CSS selector.
+            <br>
+                To return all matches (not only the first), use the querySelectorAll() instead.
+            <br>
+                Both querySelector() and querySelectorAll() throw a SYNTAX_ERR exception if the selector(s) is invalid </li>
+
+            <li> document.querySelector("p")-- Get the first <p> element: </li>
+
+
+
+        </ul>
 
 
     </div>
