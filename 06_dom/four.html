@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>edit & remove elements in DOM </title>
+</head>
+<body style="background-color: #212121; color: #fff;">
+
+    <ul class="language">
+        <li>Javascript</li>
+    </ul>
+    
+</body>
+<script>
+    //creating a function that will take a parameter and add its value to li
+    function addli(lang){
+        const li=document.createElement('li');
+        li.innerHTML=lang; //this is used in case of objects only
+        document.querySelector(".language").appendChild(li)
+    }
+    addli("python")
+    addli("typescript")
+
+    // it is optimised as tree traversal is reduced
+    function addOptiLanguage(langName){
+        const li = document.createElement('li');
+        li.appendChild(document.createTextNode(langName))
+        document.querySelector('.language').appendChild(li)
+    }
+    addOptiLanguage('golang')
+
+    //editing the element
+    const edit=document.querySelector("li:nth-child(4)")
+    console.log(edit)
+    edit.innerHTML="java"
+
+
+    const firstLang = document.querySelector("li:first-child")
+    firstLang.outerHTML = '<li>TypeScript</li>'
+
+    //remove
+    const lastLang = document.querySelector('li:last-child')
+    lastLang.remove()
+
+</script>
+</html>
