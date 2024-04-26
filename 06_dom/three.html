@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>creating a new element through Javascript</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //notes
+    //document.createElement("_") creates a new element
+    // newElement.setAttribute("key":"value") add properties
+    // document.body.appendChild(_) attatches element created to the document
+
+
+    const newElement = document.createElement("div") //pass the element we want to create as argument
+    console.log(newElement);
+    
+    //adding some properties in div
+
+    newElement.className="uno"
+    newElement.id="dos" 
+
+    //class and id are commonly used properties we can add custom attributes as well using the setAttribute() function.
+
+    newElement.setAttribute("title", "generated title")
+
+    newElement.style.backgroundColor = "green"
+
+    newElement.innerText = "Chai aur code"
+    //now the variable is created in memory but its still not showing as it is not attatched to the document
+
+    document.body.appendChild(newElement)
+
+
+
+</script>
+</html>
