@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>t</title>
+</head>
+<body>
+    <h2>welcome to JS</h2>
+    <button id="stp">STOP</button>
+    
+</body>
+<script>
+    //handler - its basically a function that doesn't have a name
+    setTimeout(function(){
+        console.log("hey");
+    },2000);
+
+    // we can also pass reference of a function
+    let func=function(){
+        console.log("hola");
+    }
+    setTimeout(func,3000);
+
+    // we can also pass reference of a function which will change text after a certain time 
+    //it used for promotions in sites. ex- geeks for geeks - it shows ads of its courses & its asks for login after 2 seconds
+
+
+    let func2=function(){
+        document.querySelector("h2").innerHTML="sorry we're full";
+    }
+    let change=setTimeout(func2,3000); //it will change content after 3 seconds
+
+    // but what if we don't want to change it 
+
+    // clearInterval(change);
+
+            document.querySelector("#stp").addEventListener('click',function(){
+            clearTimeout(change)
+            console.log("stopped");
+
+        })
+
+    //similarly for setInterval-it repeats the task after a given interval
+    
+    
+</script>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>t</title>
+</head>
+<body>
+    <h2>welcome to JS</h2>
+    <button id="stp">STOP</button>
+    <button id="strt">START</button>
+    
+</body>
+<script>
+   
+    let func2=function(str){
+        console.log(str,Date());
+    }
+    let change=setInterval(func2,2000,"user"); //passing argument
+
+    //button to stop
+
+    document.querySelector("#stp").addEventListener('click',function(){
+    clearInterval(change);
+    console.log("stopped");
+    })
+
+
+    //button to start
+
+    document.querySelector("#strt").addEventListener('click',function(){
+    // setInterval(change); - its not working
+    setInterval(func2,2000,"user");
+    //  its working but the problem is i have to create another function to stop
+    console.log("started");
+    })
+    
+    
+</script>
+</html>
