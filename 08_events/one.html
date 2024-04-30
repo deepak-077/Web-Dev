@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+    <style>
+        img{
+            height:200px;
+            width:200px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Images</h2>
+    <div>
+        <ul id="images">
+            <li id="porsche"> <img src="porsche.jpg" alt=""></li>
+            <li id="720"><img src="720.jpg" alt=""></li>
+            <li>
+                <img src="chiron.jpg" alt="">
+            </li>
+            <li><img src="mclaren.jpg" alt=""></li>
+        </ul>
+    </div>
+    
+</body>
+<script>
+    document.getElementById("porsche").onclick=function(){
+        alert("porsche")
+    }
+    // alert("porsche"); //this give alert on page reloading not on click on porsche
+
+    //important --read about function events
+    // document.getElementById("porsche").onclick=function(e){
+        // console.log(e)
+    // }
+
+    // type, timestamp, defaultPrevented
+    // target, toElement, srcElement, currentTarget,
+    // clientX, clientY, screenX, screenY
+    // altkey, ctrlkey, shiftkey, keyCode
+
+
+    // -------------------------- EVENT PROPAGATION---------------------
+
+    //BUBBLING - GOING UPWARDS LIKE BUBBLE- IT RUNS INNER ELEMENTS FIRST THEN OUTER ELEMENTS
+    // document.getElementById('images').addEventListener("click",function(e){
+    //  console.log("clicked inside ul");
+    
+
+    // e.stopPropagation() - it prevents bubbling
+
+
+    // },false);
+    // document.getElementById('porsche').addEventListener("click",function(){
+    //  console.log("clicked porsche");
+
+    // },false)
+
+
+
+    //CAPTURING - IT GOES FROM OUTWIDE TO INSIDE - RUNS OUTER ELEMENTS FIRST THEN INNER ELEMENTS
+    document.getElementById('images').addEventListener("click",function(){
+     console.log("clicked inside ul");
+
+    },true);
+    document.getElementById('porsche').addEventListener("click",function(){
+     console.log("clicked porsche");
+
+    },true)
+
+    // document.getElementById('google').addEventListener('click',function(e){
+    //     e.preventDefault();//it wont open google 
+    //     e.stopPropagation() 
+    //     console.log("google clicked");
+    // }, false)
+
+
+
+    // -------------------- task to remove clicked element-------------
+
+    document.querySelector('#images').addEventListener('click', function(e){
+        console.log(e.target.tagName);
+        if (e.target.tagName === 'IMG') {
+            // this condition checks if the image is clicked if the parent or image is clicked it will remove everything.
+            console.log(e.target.id);
+            let removeIt = e.target.parentNode
+            removeIt.remove()
+        }
+    
+        
+    })
+
+    
+
+    
+</script>
+</html>
