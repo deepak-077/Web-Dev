@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>keyboard</title>
+    <style>
+        #main{
+            text-align: center;
+            font-size: 100px;
+        }
+        p{
+            font-size:70px;
+            text-align: center;
+        }
+        #insert{
+            text-align: center;
+            font-size:70px;
+            
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div id="main">Press any Key</div>
+        <p>You pressed </p>
+        <p id="insert">__ </p>
+    </div>
+    
+</body>
+<script>
+    let insert=document.getElementById("insert");
+    window.addEventListener('keydown',(e)=>{
+        insert.innerHTML=e.code
+    })
+
+</script>
+</html>
