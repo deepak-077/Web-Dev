@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Request</title>
+</head>
+<body>
+    <p>USER INFO</p>
+    <p id="userName">__</p>
+    <p id="followers">__</p>
+
+
+    
+</body>
+<script>
+    let reqUrl="https://api.github.com/users/deepak-077"
+    //now we have to create a new object of xmlHttpRequest();
+    let xhr=new XMLHttpRequest();
+
+    xhr.open("GET",reqUrl); //it takes type of method 
+    // console.log(xhr.readyState); //it will print state once
+    //  we want to print it as it gets updated
+    
+    xhr.onreadystatechange = function(){
+        console.log(xhr.readyState);
+        //performing some action when stage 4 is reached
+        if (xhr.readyState === 4) {
+            const data = JSON.parse(this.responseText) //converting string data to JSON
+            console.log(typeof data);
+            // console.log("followers= "+data.followers);
+            document.getElementById("userName").innerHTML=data.name;
+            document.getElementById("followers").innerHTML=data.followers;
+        }
+
+    }
+    xhr.send();
+</script>
+</html>
