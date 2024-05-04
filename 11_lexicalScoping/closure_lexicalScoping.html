@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h4> lexical scoping- The process of determining the scopes of the variables/functions during runtime is called lexical scoping.</h4>
+
+    <button id="orange">Orange</button>
+    <button id="green">Green</button>
+    
+</body>
+<script>
+    function init() {
+        let name = "Mozilla"; 
+        function displayName() {
+            console.log(name); 
+        }
+        displayName();
+        // here we are just calling the inner function
+    }
+    init();
+
+
+
+     function makeFunc() {
+        const name = "Mozilla";
+        function displayName() {
+            console.log(name);
+        }
+        return displayName;     
+    }
+    //now we are returning the inner function it will not just return the inner function(i.e from line 27-29)
+    // it will return the outer function as well i.e( from line 25-32) because the inner function in itself is incomplete it does't have the variable name.
+
+    // it is known as lexical scoping- The process of determining the scopes of the variables/functions during runtime is called lexical scoping.
+
+    const myFunc = makeFunc();
+    myFunc();
+
+
+
+    // ---------------------------- Another Example ----------------------------
+    
+        // document.getElementById("orange").onclick = function(){
+        //     document.body.style.backgroundColor = `orange`
+        // }
+        // document.getElementById("green").onclick = function(){
+        //     document.body.style.backgroundColor = `green`
+        // }
+
+
+        // ---------------------------------------------------------------
+
+
+        //generic Code
+
+        function clickHandler(color){
+            // document.body.style.backgroundColor = `${color}`
+
+            return function(){
+                document.body.style.backgroundColor = `${color}`
+                
+                // if we don't write this part the code executes without clicking 
+
+            }
+            
+        }
+
+        
+
+        document.getElementById('orange').onclick = clickHandler("orange")
+        document.getElementById('green').onclick = clickHandler("green")
+
+    
+</script>
+
+</html>
